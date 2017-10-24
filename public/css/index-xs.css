@@ -1,0 +1,21 @@
+/*<768px for phone*/
+
+.tolNav {
+  height: 40px;
+}
+.navModules {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+}
+.navModules:nth-of-type(1){
+    text-indent:0;
+}
+.navModules span a {
+  font-size: 14px;
+}
+.navModules button {
+  width: 70%;
+  height: 30px;
+  font-size: 14px;
+}

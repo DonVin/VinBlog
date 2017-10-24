@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vin Club</title>
+    <script src='/public/js/jquery-3.1.1.js'></script>
+    <link rel="stylesheet" href='/public/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="stylesheet" href="/public/css/index-lg.css" media='all and (min-width:1200px)'>
+    <link rel="stylesheet" href="/public/css/index-md.css" media='all and (min-width:992px) and (max-width:1200px)'>
+    <link rel="stylesheet" href="/public/css/index-sm.css" media='all and (min-width:768px) and (max-width:992px)'>
+    <link rel="stylesheet" href="/public/css/index-xs.css" media='all and (max-width:768px)'>
+    <script>
+        var html = document.documentElement;
+        html.style.fontSize = html.clientWidth/144+'px';
+        $(window).resize(function(){
+            var html = document.documentElement;
+            html.style.fontSize = html.clientWidth/144+'px';
+        })
+        document.addEventListener('touchstart',function(ev){
+            ev.preventDefault();
+        })
+    </script>
+</head>
+<body> 
+    <header>
+        <nav>
+            <div class="container-fluid tolNav">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4 navModules">
+                    <span>
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    Welcome
+
+                    {% if userInfo._id %}
+                    <a class='loginName'>{{userInfo.username}}</a>
+                        {% if userInfo.isAdmin %}
+                    <a class='admin' href='/admin' target="block">Control</a>
+                        {% else %}
+                    <a class='admin'></a>
+                        {% endif %}
+                    <a class='outLogin'>quit</a>
+                    {% endif %}
+                </div>
+                {%block button%}{%endblock%} 
+                <!--{% for category in categories %}
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+                        
+                        <button class="btn active">
+                            {% if category.name == 'Home' %}
+                            <a href="/">{{category.name}}</a>
+                            {% else %}
+                            <a href="/{{category.name.toLowerCase()}}" >{{category.name}}</a>
+                            {% endif %}
+                        </button>                   
+                    </div>
+                {% endfor %}-->      
+            </div>
+        </nav>
+        <div class="loginBox">
+            <div class="loginClose glyphicon glyphicon-remove"></div>
+            <div class="input-group">
+                <span class="input-group-addon">Username</span>
+                <input type="text" class="form-control" placeholder="Username" name="username">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">Password</span>
+                <input type="password" class="form-control" placeholder="Password" name="password">
+            </div>
+            <div class="loginBtn">
+                <div class="btn-group">
+                    <button class="btn btnTabRegister">Register</button>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btnSucLogin">Go</button>
+                </div>
+            </div>
+            <div class="hintFail"></div>
+            <div class="hintSucc"></div>
+        </div>
+        <div class="registerBox">
+            <div class="loginClose glyphicon glyphicon-remove"></div>
+            <div class="input-group">
+                <span class="input-group-addon">Username</span>
+                <input type="text" class="form-control" placeholder="Username" name="username">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">Password</span>
+                <input type="password" class="form-control" placeholder="Password" name="password">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">Confirm</span>
+                <input type="password" class="form-control" placeholder="Confirm Password" name="confirm">
+            </div>
+            <div class="registerBtn">
+                <div class="btn-group">
+                    <button class="btn btnTabLogin">Login</button>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btnSucRegister">Go</button>
+                </div>
+            </div>
+            <div class="hintFail"></div>
+            <div class="hintSucc"></div>
+        </div>
+        
+    </header>
+    <section id='section'>
+        {%block main%}{%endblock%}      
+    </section>
+
+    <footer>
+        <div class="container-fuild">
+            <div class="footerAdmin">
+                <span class="glyphicon glyphicon-heart"></span>
+            </div>
+        </div>
+    </footer>
+    <script src='/public/js/index.js'></script>
+</body>
+</html>

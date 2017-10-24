@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+  <li><a href="/admin">Home</a></li>
+  <li><a href="/admin/category">Category Management</a></li>
+</ol>
+
+<h4>Category List</h4>
+
+
+
+<table class="table table-hover table-striped">
+    <tr>
+        <th>ID</th>
+        <th>ListName</th>
+        <th>Operation</th>
+    </tr>
+
+    {% for category in categories %}
+    <tr>
+        <td>{{category.id}}</td>
+        <td>{{category.name}}</td>
+        <td>
+            <a href="/admin/category/edit?id={{category._id.toString()}}">Eidt</a> |
+            <a href="/admin/category/delete?id={{category._id.toString()}}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% include 'page.html' %}
+
+{% endblock %}

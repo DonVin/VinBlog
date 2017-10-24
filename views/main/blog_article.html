@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+
+{% block button %}
+
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn">
+            <a href="/">Home</a>
+        </button>  
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn active">
+            <a href="/blog" >Blog</a>
+        </button>  
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn">
+            <a href="/show" >Show</a>
+        </button>  
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn">
+            <a href="/about" >About</a>
+        </button>  
+    </div>
+
+{% endblock %}
+
+{% block main %}
+
+{% for content in contents %}
+<div class="container-fuild blogArticle">
+  <div class="articleBox">
+    <h3 class="articleTitle"></h3>
+    <div class="articleDescription"></div>
+    <div class="articleDetail">
+      <span>author</span>
+      <span>views</span>
+      <span>comments</span>
+      <span>time</span>
+      <span>category</span>
+    </div>
+    <div class="articleContent">
+        
+      
+    </div>
+  </div>
+  <div class="comment">
+    <div>
+        <span class="commentTitle">Comment</span>
+        <span class="commentTotal"><i>Total:</i><i>0</i></span>
+    </div>
+
+    {% if userInfo.username %}
+    <div class="inputComment">
+        <textarea></textarea>
+        <button type="submit" class="commentSubmit">Submit</button>
+    </div>
+    {% else %}
+    <div class="alert alert-warning loginConfirm" role="alert">
+        You have to <a class="commentLogin">log in</a> before you can comment!
+    </div>
+    {% endif %}
+
+    {% for comment in comments %}
+    <div class="commentList">
+        <div>
+            <span class="commentAuthor">
+                <i>Aurthor:</i>
+                <i class="commentAuthor_who">{{comment.author}}</i>
+            </span>
+            <span class="address">
+                <i>{{comment.address}}</i>
+            </span>
+            <span class="commentTime">
+                <i>Comment Time:</i>
+                <i class="commentTime_now">{{comment.addTime|date('Y-m-d H:i:s' , -8*60)}}</i>
+            </span>
+        </div>
+        <div class="commentText">
+            <!-- {% autoescape %}{{comment.comment}}{% endautoescape %} -->
+            {{comment.comment}}
+        </div>
+    </div>
+    {% endfor %}
+    <nav>
+        <ul class="pager">
+            <li><a href="/blog/article?id={{contentid}}&page={{page-1}}">Previous</a></li>
+            <li><a href="/blog/article?id={{contentid}}&page={{page+1}}">Next</a></li>
+        </ul>
+    </nav>
+    
+  </div>
+</div>
+{% endfor %}
+
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
+<script src="/public/js/blog_article.js"></script>
+
+{% endblock %}

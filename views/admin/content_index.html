@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+  <li><a href="/admin">Home</a></li>
+  <li><a href="/admin/content">Content Management</a></li>
+</ol>
+
+<h4>Content List</h4>
+
+<div class="form-group">
+    <label for="categories">Categories:</label>
+    <select name="category" id="category" class="form-control" onchange='window.location=this.value'>
+
+        {%if type == ''%}
+        <option value="/admin/content" selected>All</option>
+        {%else%}
+        <option value="/admin/content">All</option>
+        {%endif%}
+
+        {%for category in categories%}
+        {%if type == category.id%}
+        <option value="/admin/content?type={{category.id}}" selected>{{category.name}}</option>
+        {%else%}
+        <option value="/admin/content?type={{category.id}}">{{category.name}}</option>
+        {%endif%}
+        {%endfor%}
+    
+
+    </select>
+</div>
+
+<table class="table table-hover table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>AddTime</th> 
+        <th>Views</th>       
+        <th>Operation</th>
+        <th>Modification</th>
+    </tr>
+
+    {% for content in contents %}
+    <tr>
+        <td>{{content._id.toString()}}</td>
+        <td><a href="/admin/content/edit?id={{content._id.toString()}}">{{content.title}}</a></td>
+        <td>{{content.category.name}}</td>
+        <td>{{content.user.username}}</td>
+        <td>{{content.addTime|date('Y-m-d H:i:s' , -8*60)}}</td>
+        <td>{{content.views}}</td>
+        <td>
+            <a href="/admin/content/edit?id={{content._id.toString()}}">Eidt</a> |
+            <a href="/admin/content/delete?id={{content._id.toString()}}">Delete</a>
+        </td>
+        <td>{{content.modification|date('Y-m-d H:i:s' , -8*60)}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% include 'page.html' %}
+
+
+
+{% endblock %}

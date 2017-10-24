@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+  <li><a href="/admin">Home</a></li>
+  <li><a href="/admin/content">Content Management</a></li>
+</ol>
+
+<h4>Content Delete - {{content.title}}</h4>
+
+<div class="alert alert-warning" role="alert">Do you want to delete {{content.title}} ?</div>
+
+<a href="/admin/content/delete?id={{content.id}}&confirm=true" class="btn" style="color:red;width:10rem;border:1px solid red">Yes</a>
+<a href="/admin/content" class="btn"  style="color:#54FF9F;border:1px solid #54FF9F;width:10rem">No,Thanks</a>
+
+
+{% endblock %}

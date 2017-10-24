@@ -1,0 +1,22 @@
+/*>=1200px for large PC*/
+
+
+.tolNav {
+  height: 80px;
+}
+.navModules {
+  height: 80px;
+  margin-left: 2%;
+  line-height: 80px;
+  font-size: 24px;
+}
+.navModules:nth-of-type(1){
+    text-indent:50px;
+}
+.navModules a {
+  font-size: 21px;
+}
+.navModules button {
+  height: 60px;
+  font-size: 20px;
+}

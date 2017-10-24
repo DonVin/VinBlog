@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+  <li><a href="/admin">Home</a></li>
+  <li><a href="/admin/{{who's comment}}">{{who's comment}}  Management</a></li>
+  <li><span>{{who's comment}} Comment</span></li>
+</ol>
+
+<h4>{{who's comment}} Comment List</h4>
+
+<table class="table table-hover table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Sort</th>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Comment</th>
+        <th>AddTime</th>  
+        <th>Comment</th>
+        <th>IP</th>  
+        <th>Address</th>
+        <th>Modification</th>
+    </tr>
+
+    {% for comment in comments %}
+    <tr>
+        <td>{{comment.id}}</td>
+        <td>{{comment.sort}}</td>
+        <td>{{comment.user.username}}</td>
+        {% if comment.content %}
+        <td>{{comment.content.title}}</td>
+        {% else %}
+        <td>{{comment.project.title}}</td>
+        {% endif %}
+        <td><a href="/admin/{{sort}}/comment/edit?id={{comment._id.toString()}}">
+            <span class="omitComment">{{comment.comment}}</span></a></td>
+        <td>{{comment.ip}}</td>
+        <td>{{comment.address}}</td>
+        <td>{{comment.addTime|date('Y-m-d H:i:s' , -8*60)}}</td>
+        
+        <td>
+            <a href="/admin/{{sort}}/comment/edit?id={{comment._id.toString()}}">Eidt</a> |
+            <a href="/admin/content/comment/delete?id={{comment._id.toString()}}">Delete</a>
+        </td>
+        <td>{{comment.modification|date('Y-m-d H:i:s' , -8*60)}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<nav>
+  <ul class="pager">
+    <li class="previous"><a href="/admin/{{sort}}/comment?page={{page-1}}"><span aria-hidden="true">&larr;</span> Older</a></li>
+    <li>有{{count}}条数据，共{{pages}}页，每页显示{{limit}}条，当前第{{page}}页</li>
+    <li class="next"><a href="/admin/{{sort}}/comment?page={{page+1}}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav>
+
+<script>
+
+    setOmit(5,'...')
+
+    function setOmit(length,omit){
+        $('.omitComment').each(function(){
+            
+            let showComment = '';
+            for(let i=0;i<length;i++){
+                showComment += $(this).html()[i];
+            }
+            console.log(showComment)
+            $(this).html(showComment+omit) 
+        })
+
+    }
+
+</script>
+
+
+{% endblock %}

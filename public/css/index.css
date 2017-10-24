@@ -1,0 +1,494 @@
+/*general*/
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type:none;
+  color: #546CA2;
+  font-family: 'KaiTi';
+}
+input {
+  outline:none;
+}
+a {
+  text-decoration:none;
+  cursor: pointer;
+  outline: none;  
+}
+button {
+  border:none;
+  outline: none;  
+}
+.pager {
+  color: #4876FF;
+}
+
+/*nav*/
+header{
+  width: 100%;
+  height: auto;
+}
+.navModules {
+  height: 100%;
+  font-weight: bold;
+  padding: 0;
+  color: #546CA2;
+}
+.navModules span i {
+  /*color:#0E65AE;*/
+  color:#546CA2;
+  cursor: pointer;
+  margin-right:0.8rem;
+}
+.navModules span:hover {
+  color: #546CA2;
+}
+.navModules a {
+  text-decoration: none;
+}
+.navModules button a {
+  color: #546CA2;
+}
+.navModules a:hover {
+  text-decoration: none;
+}
+.navModules .loginName {
+  color:#0C1051;
+  cursor: pointer;
+  margin-left:0.8rem;
+  font-size:1.5rem;
+}
+.navModules .admin {
+  color:#0C1051;
+  cursor: pointer;
+  margin-left:0.8rem;
+  font-size:1.5rem;
+}
+.navModules .outLogin {
+  color:#0C1051;
+  cursor: pointer;
+  margin-left:1rem;
+  font-size:1.5rem;
+}
+.navModules button {
+  width: 100%;
+  line-height: 100%;
+  text-align:center;
+  background: white;
+  padding: 0;
+  outline: none!important;
+}
+.navModules button.active {
+  background:#546CA2;
+}
+.navModules button.active a{
+  color:#fff;
+}
+
+/*login & register*/
+/*login*/
+.loginBox {
+  position: fixed;
+  z-index: 10;
+  box-sizing: border-box;
+  padding: 2rem;
+  top: 15rem;
+  left: 52rem;
+  width: 400px;
+  height: 250px;
+  background:rgba(255,255,255,0.6);
+  display: none;
+}
+.loginClose {
+  position: absolute;
+  right: 2px;
+  top: 0;
+  z-index: 11;
+  font-weight: bold;
+  color: rgba(0,0,0,0.6);
+  font-size:20px;
+}
+.loginBox .input-group {
+  margin:25px auto;
+}
+.loginBtn {
+  width: 300px;
+  height: 40px;
+  margin-top:30px;
+}
+.loginBox .btn-group {
+  text-align: center;
+  float: left;
+  margin-left: 30px;
+}
+.loginBtn .btn-group .btn{
+  width: 100px;
+  height: 35px;
+  line-height: 100%;
+  font-size: 18px;
+}
+.loginBox .btn-group {
+  text-align: center;
+  float: left;
+  margin-left: 40px;
+}
+.loginBox .hintFail{
+  color: red;
+  height: 30px;
+  line-height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  float: right;
+}
+.loginBox .hintSucc{
+  color: green;
+  height: 30px;
+  line-height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  float: left;
+}
+
+
+/*register*/
+.registerBox {
+  position: fixed;
+  z-index: 10;
+  box-sizing: border-box;
+  padding: 3rem;
+  top: 15rem;
+  left: 52rem;
+  width: 400px;
+  height: 250px;
+  background:rgba(255,255,255,0.6);
+  display: none;
+}
+.registerBox .input-group{
+  margin:10px auto;
+}
+/*.registerBox .input-group:nth-of-type(1){
+  margin: 0!;
+}*/
+.registerBox .registerBtn{
+  width: auto;
+  height: 35px;
+}
+.registerBox .btn-group .btn{
+  width: 100px;
+  height: 35px;
+  line-height: 100%;
+  font-size: 18px;
+}
+.registerBox .btn-group {
+  text-align: center;
+  float: left;
+  margin-left: 40px;
+}
+.registerBox .hintFail{
+  color: red;
+  height: 30px;
+  line-height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  float: right;
+}
+.registerBox .hintSucc{
+  color: green;
+  height: 30px;
+  line-height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  float: left;
+}
+
+
+/*section*/
+/* home */
+.homeSection {
+  width: 100%;
+  height: auto;
+  padding: 2rem 2rem;
+}
+.homeBK {
+  background: url('/public/images/bk.png');
+  background-size: 100% 100%;
+  width: 100rem;
+  height: 60rem;
+  margin: 0 auto;
+}
+
+/* blog */
+.blogSection {
+  width: 100%;
+  height: auto;
+  padding: 5rem;
+}
+.blogCategories div a {
+   border: 1px solid #CDD9DA; 
+   color: #546CA2;
+}
+  .blogCategories div a:hover {
+   background: #546CA2; 
+   color: white;
+}
+.blogCategories div a.active {
+   background: #546CA2; 
+}
+.blogArticle {
+  width: 70%;
+  height: auto;
+  margin: 3rem auto; 
+}
+.blogArticle .article{
+  width: 100%;
+  height: 10rem;
+  margin: 2rem auto;
+  padding: 1px; 
+  /* background: #CDD9DA; */
+  border-bottom: 1px dotted #546CA2;
+}
+.blogTitle {
+  margin: 2rem;
+  font-weight: bold;
+  font-family: 'KaiTi';
+}
+.blogTitle p {
+  float: right;
+  color: #4876FF;
+}
+.countViews {
+  margin: 1rem 2rem;
+}
+.countViews span {
+  margin-left: 1rem;
+  color: #546CA2;
+}
+.countViews i {
+  color: #546CA2;
+}
+.countViews .showCaterogy {
+  color: #546CA2;
+  float: right;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+.blogActive {
+  color: #fff!important;
+  background: #546CA2;
+}
+.blogArticle {
+  padding: 1rem;
+}
+.articleBox {
+  padding: 2rem;  
+  margin: 0 auto;
+  border: 1px solid #CDD9DA;
+  height: auto;
+}
+.articleTitle {
+  width: 100%;
+  height: auto;
+}
+.articleDescription {
+  width: 100%;
+  height: auto;
+}
+.articleDetail {
+  width: 100%;
+  height: auto;
+}
+.articleContent p{
+  width: 100%;
+  min-height: 800px;
+}
+
+/* show */
+.showSection {
+  width: 100%;
+  height: auto;
+  padding: 5rem 10rem;
+}
+.showSection .jumbotron {
+  padding: 5rem;
+  border-radius: 1.5rem;
+}
+.showSection .jumbotron h3 {
+  color: #0C1051;
+}
+.showSection .jumbotron p {
+  color: #546CA2;
+  font-size: 1.6rem;  
+}
+.showDemo {
+  width: 70%;
+  height: auto;
+  margin: 3rem auto; 
+}
+.showDemo .demo{
+  width: 100%;
+  height: 10rem;
+  margin: 2rem auto;
+  padding: 1px; 
+  /* background: #CDD9DA; */
+  border-bottom: 1px dotted #546CA2;
+}
+.demoTitle {
+  margin: 2rem;
+  font-weight: bold;
+  font-family: 'KaiTi';
+}
+.demoTitle p {
+  float: right;
+  color: #4876FF;
+}
+.countViews {
+  margin: 1rem 2rem;
+}
+.countViews span {
+  margin-left: 1rem;
+  color: #546CA2;
+}
+.countViews i {
+  color: #546CA2;
+}
+
+/* comment */
+.comment {
+  padding: 2rem;  
+  margin: 2rem auto;
+  border: 1px solid #CDD9DA;
+  height: auto;
+  font-family: 'KaiTi';
+}
+.commentTitle {
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin: 0.5rem;
+}
+.commentTotal {
+  float: right;
+  font-size: 1.2rem;
+  margin: 0.5rem;
+}
+.address {
+  margin-left: 15rem;
+}
+.address i {
+  font-size: 1.2rem;
+}
+.commentTotal i {
+  margin: 0 0.5rem;
+  font-size: 1.4rem;
+  color: #4876FF; 
+  font-weight: bold;
+}
+.loginConfirm {
+  margin: 0.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.inputComment {
+  width: 100%;
+  height: 10.4rem;
+  margin: 0.5rem auto;  
+  border: 0.1rem solid #CDD9DA;
+  padding: 0.1rem;
+  box-sizing: border-box;
+}
+.inputComment textarea {
+  border: none;
+  height: 10rem;
+  width: 85%;
+  float: left;
+  box-sizing: border-box;
+  outline: none;
+  padding: 1rem;
+  overflow: scroll;
+}
+.inputComment button {
+  outline: none;  
+  height: 10rem;  
+  float: right;
+  width: 15%;
+  font-size: 1.5rem;
+  color: white; 
+  border-radius: 1rem;
+  background: rgba(62,86,150,0.7);
+}
+.inputComment button:hover {
+  background: #546CA2;
+}
+.commentList {
+  width: 100%;
+  margin: 1rem auto;
+  border-bottom: 1px solid #CDD9DA;
+  height: auto;
+  font-size: 1.6rem;
+  padding: 3rem;
+}
+
+.commentTime {
+  float: right; 
+  
+}
+.commentTime i {
+  color: gray;
+}
+.commentList i {
+  margin: 0 0.2rem;
+}
+.commentText {
+  color: #0C1051;
+  font-size: 1.5rem;
+  font-family: 'Microsoft YaHei';
+  overflow: hidden;
+  height: auto;
+  margin: 2rem;
+}
+
+/*footer*/
+.homeFooter {
+  height: 20rem;
+  /* background: #C3D1E1; */
+  color: #546CA2;
+  padding: 5rem 3rem;
+  font-size: 1.6rem;
+  font-family: 'KaiTi';
+}
+.homeFooter p {
+  text-align: center;
+}
+.footerAdmin {
+  width: 100px;
+  height: 100px;
+  margin: 3rem auto;
+  font-family: 'KaiTi';
+  color: #546CA2;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* admin */
+/* comtent */
+.setStyle {
+  width: 100%;
+  height: 30px;
+  border: 1px solid gray;
+}
+.setStyle div{
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 3px 3px;
+}
+.setStyle .contentRed {
+  background: red;
+}
+.setStyle .contentBlue {
+  background: blue;
+}
+.setStyle .contentGreen {
+  background: green;
+}
+
+
+

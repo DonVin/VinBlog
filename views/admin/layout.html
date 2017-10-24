@@ -1,0 +1,88 @@
+<!--父类模板-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Everything Is Under Control</title>
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-theme.css">
+    <script src='/public/js/jquery-3.1.1.js'></script>
+    <script src='/public/js/bootstrap.min.js'></script>
+    <script src='/public/js/rem.js'></script>
+</head>
+<body>
+    <!--顶部导航-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/admin">BAM</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/admin/user">User Management</a></li>
+                <li class="dropdown">
+                    <a href="/admin/category" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Category Management        
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/category">Category Homepage</a></li>
+                        <li><a href="/admin/category/add">Add List</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/admin/content" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Content Management        
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/content">Content Homepage</a></li>
+                        <li><a href="/admin/content/add">Add Content</a></li>
+                        <li><a href="/admin/content/comment">Article Comment</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/admin/project" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Project Management        
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/project">Project Homepage</a></li>
+                        <li><a href="/admin/project/add">Add Project</a></li>
+                        <li><a href="/admin/project/comment">Project Comment</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--<form class="navbar-form navbar-left">
+                <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>-->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{userInfo.username}} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">退出</a></li>
+                </ul>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        {%block main%}{%endblock%}
+    </div>
+    <footer>
+        <div class="container-fuild">
+            <div class="footerAdmin">
+                <span class="glyphicon glyphicon-heart"></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

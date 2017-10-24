@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+  <li><a href="/admin">Home</a></li>
+  <li><a href="/admin/content">Content  Management</a></li>
+  <li><span>Add Content</span></li>
+</ol>
+
+<h4>Add Content</h4>
+
+<form method="post">
+
+    <div class="form-group">
+      <label for="category">Categories:</label>
+      <select name="category" id="category" class="form-control">
+        {% for category in categories %}
+        <option value="{{category.id}}">{{category.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+  <div class="form-group">
+    <label for="title">Content Title:</label>
+    <input type="text" class="form-control" name='title' id="title" placeholder="Input Content Title">
+  </div>
+
+    <div class="form-group">
+      <label for="description">Content Description:</label>
+      <input type="text" class="form-control" name='description' id="description" placeholder="Input Content Description">
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content:</label>
+      <div class="setStyle">
+        <div class="contentRed"></div>
+        <div class="contentBlue"></div>
+        <div class="contentGreen"></div>        
+      </div>
+      <textarea name="content" id="content" class="form-control" rows="15" placeholder="Input Content"></textarea>
+    </div>
+
+  <button type="submit" class="btn btn-default" id="submit">Submit</button>
+</form>
+
+<script src="/public/js/content_add.js"></script>
+<script src="/public/js/content.js"></script>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block button %}
+
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn">
+            <a href="/">Home</a>
+        </button>  
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn active">
+            <a href="/blog" >Blog</a>
+        </button>  
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn">
+            <a href="/show" >Show</a>
+        </button>  
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn">
+            <a href="/about" >About</a>
+        </button>  
+    </div>
+
+{% endblock %}
+
+{% block main %}
+
+<div class="container-fuild blogSection">
+    <nav class="blogCategories">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <!-- <a class="btn btn-default" href="/blog">All</a> -->
+            {% for category in categories %}
+
+                    {% if categoryid == category._id %}
+                        <a class="btn btn-default blogActive" href="/blog?categoryid={{category.id}}">{{category.name}}</a>
+                {% else %}
+                    <a class="btn btn-default" href="/blog?categoryid={{category.id}}">{{category.name}}</a>
+                {% endif %} 
+                
+            {% endfor %}
+        </div>
+    </nav>
+    <div class="blogArticle">
+
+        {% for content in contents %}
+        <div class="article">
+            <div class="blogTitle">
+                <a href="/blog/article?id={{content.id}}" target="_blank">{{content.title}}</a>
+                <p>{{content.addTime|date('Y-m-d H:i:s',-8*60)}}</p>
+            </div>
+            <div class='countViews'>
+                <span class="glyphicon glyphicon-comment"></span>
+                <i>12</i>
+                <span class="glyphicon glyphicon-eye-open"></span>
+                <i>{{content.views}}</i>
+                <i class="showCaterogy">{{content.category.name}}</i>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+<nav>
+  <ul class="pager">
+    <li class="previous"><a href="/blog?page={{page-1}}&categoryid={{categoryid}}"><span aria-hidden="true">&larr;</span> Older</a></li>
+    <li>有{{count}}篇文章，共{{pages}}页，每页显示{{limit}}篇，当前第{{page}}页</li>
+    <li class="next"><a href="/blog?page={{page+1}}&categoryid={{categoryid}}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav>
+
+{% endblock %}

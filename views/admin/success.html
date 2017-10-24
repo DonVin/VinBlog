@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+  <li><a href="/admin">Home</a></li>
+  <li><a href="/admin/category">Sort Management</a></li>
+  <li><span>Add List</span></li>
+</ol>
+
+<h4>Category List</h4>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Success</div>
+  <div class="panel-body">{{message}}</div>
+  <div class="panel-footer">
+      {% if url %}
+      <a href="{{url}}">Click</a>
+      {% else %}
+      <a href="javascript:window.history.back();">Return</a>
+      {% endif %}
+      
+  </div>
+</div>
+
+{% endblock %}
+
+

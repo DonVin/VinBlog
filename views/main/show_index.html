@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block button %}
+
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn">
+            <a href="/">Home</a>
+        </button>  
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn">
+            <a href="/blog" >Blog</a>
+        </button>  
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn active">
+            <a href="/show" >Show</a>
+        </button>  
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 navModules">
+        <button class="btn">
+            <a href="/about" >About</a>
+        </button>  
+    </div>
+
+{% endblock %}
+
+{% block main %}
+
+<div class="container-fuild showSection">
+    <div class="jumbotron">
+        <h3>Whatever</h3>
+        <p>There's some interesting Demo, I'd written notes for them. Maybe there're some mistakes, I'd like to give me some advice.</p>
+    </div>
+    <div class="showDemo"> 
+        <div class="demo">
+            <div class="demoTitle">
+                <a href="">3D旋转模型</a>
+                <p>08-05-2017</p>
+            </div>
+            <div class='countViews'>
+                <span class="glyphicon glyphicon-comment"></span>
+                <i>12</i>
+                <span class="glyphicon glyphicon-eye-open"></span>
+                <i>12</i>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

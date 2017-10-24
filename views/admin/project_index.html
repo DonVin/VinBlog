@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+  <li><a href="/admin">Home</a></li>
+  <li><a href="/admin/project">Project Management</a></li>
+</ol>
+
+<h4>Project List</h4>
+
+<table class="table table-hover table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>AddTime</th> 
+        <th>Views</th>       
+        <th>Operation</th>
+    </tr>
+
+    {% for project in projects %}
+    <tr>
+        <td>{{project._id.toString()}}</td>
+        <td>{{project.title}}</td>
+        <td>{{project.category.name}}</td>
+        <td>{{project.user.username}}</td>
+        <td>{{project.addTime|date('Y-m-d H:i:s' , -8*60)}}</td>
+        <td>{{project.views}}</td>
+        <td>
+            <a href="/admin/project/edit?id={{project._id.toString()}}">Eidt</a> |
+            <a href="/admin/project/delete?id={{project._id.toString()}}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% include 'page.html' %}
+
+
+
+{% endblock %}
